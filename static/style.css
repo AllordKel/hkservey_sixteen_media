@@ -1,0 +1,173 @@
+/* reset and common styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9fbff; /* background */
+  color: #222;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e8eef9;
+}
+header img {
+  height: 36px;
+}
+header .title {
+  font-weight: 600;
+}
+
+/* Landing */
+main.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+main.landing form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+main.landing input[type="text"],
+main.landing input[type="email"] {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+}
+.checkbox-label {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.4;
+}
+.checkbox-label a {
+  color: #0077b6;
+  text-decoration: none;
+}
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button,
+.submit-btn,
+.btn {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0090c7;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s ease, transform .05s ease;
+}
+button:hover,
+.submit-btn:hover,
+.btn:hover {
+  background-color: #007da6;
+  transform: translateY(-1px);
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Survey progress bar */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e8eef9;
+}
+.progress {
+  height: 100%;
+  width: 0%;
+  background: #1a5ad7;
+  transition: width 300ms ease;
+}
+
+/* Survey */
+main.survey {
+  max-width: 560px;
+  margin: 48px auto;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(11,63,135,0.08);
+}
+main.survey h2 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #000;
+}
+.options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.option {
+  padding: 12px 14px;
+  border: 1px solid #d8e2f3;
+  border-radius: 10px;
+  background: #f6f9ff;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: transform .05s ease, background .2s ease;
+  color: #000;
+  font-weight: normal;
+}
+.option:hover {
+  background: #eef4ff;
+  transform: translateY(-1px);
+}
+input[type="tel"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #d8e2f3;
+  background: #fff;
+}
+
+/* Thank you page */
+main.typ {
+  max-width: 560px;
+  margin: 80px auto;
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(11,63,135,0.08);
+}
+main.typ h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #0090c7;
+}
+main.typ p {
+  font-size: 16px;
+  margin-bottom: 28px;
+  color: #444;
+  line-height: 1.5;
+}

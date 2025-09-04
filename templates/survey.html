@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sixteen Media Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Sixteen Media Logo">
+  </header>
+
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <main class="survey">
+  <form method="POST" class="space-y-4">
+    <input type="hidden" name="income" id="incomeField">
+    <input type="hidden" name="employment" id="employmentField">
+    <input type="hidden" name="phone" id="phoneField">
+
+    <!-- Question 1 -->
+    <div id="step-1" class="step">
+      <h2>What is your income range?</h2>
+      <div class="options">
+        <button type="button" class="option" onclick="nextStep(1, 'income','<$20,000')">Less than $20,000</button>
+        <button type="button" class="option" onclick="nextStep(1, 'income','$20,000-$40,000')">$20,000 - $40,000</button>
+        <button type="button" class="option" onclick="nextStep(1, 'income','$40,000-$80,000')">$40,000 - $80,000</button>
+        <button type="button" class="option" onclick="nextStep(1, 'income','>$80,000')">More than $80,000</button>
+      </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="step-2" class="step" style="display:none;">
+      <h2>What is your employment status?</h2>
+      <div class="options">
+        <button type="button" class="option" onclick="nextStep(2, 'employment','Full Time')">Full Time</button>
+        <button type="button" class="option" onclick="nextStep(2, 'employment','Part Time')">Part Time</button>
+        <button type="button" class="option" onclick="nextStep(2, 'employment','Self-Employed')">Self-Employed</button>
+        <button type="button" class="option" onclick="nextStep(2, 'employment','Retired')">Retired</button>
+        <button type="button" class="option" onclick="nextStep(2, 'employment','Other')">Other</button>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div id="step-3" class="step" style="display:none;">
+      <h2>Please enter your US phone number:</h2>
+      <input type="tel" id="phoneInput" placeholder="(123) 456-7890" required>
+      <br>
+      <br>
+      <button type="submit" class="submit-btn" onclick="copyPhone()">Submit</button>
+    </div>
+  </form>
+</main>
+
+<script>
+  const progress = [0, 33, 66, 100];
+
+  function setProgress(step) {
+    document.getElementById("progress").style.width = progress[step] + "%";
+  }
+
+  function nextStep(step, fieldName, value) {
+    // saving answer in hidden input
+    document.getElementById(fieldName + "Field").value = value;
+
+    // hide current step, show previous
+    document.getElementById("step-" + step).style.display = "none";
+    document.getElementById("step-" + (step + 1)).style.display = "block";
+
+    setProgress(step);
+  }
+
+  function copyPhone() {
+    const phone = document.getElementById("phoneInput").value;
+    document.getElementById("phoneField").value = phone;
+    setProgress(3);
+  }
+  </script>
+</body>
+</html>

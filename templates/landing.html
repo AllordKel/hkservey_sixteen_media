@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sixteen Media Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Sixteen Media Logo">
+</header>
+
+<main class="landing">
+  <form action="{{ url_for('start_survey') }}" method="post">
+    <input type="text" name="first_name" placeholder="First name" required>
+    <input type="text" name="last_name" placeholder="Last name" required>
+    <input type="email" name="email" placeholder="Email" required>
+
+    <label class="checkbox-label">
+        <input type="checkbox" required>
+        <span>
+            By checking this box, I agree that I have read, understood, and consent to 
+            Sixteen Media, UAB <a href="https://sixteen.media/privacy-policy" target="_blank">Privacy Policy</a>.
+        </span>
+    </label>
+
+    <button type="submit">Start Survey</button>
+  </form>
+</main>
+
+</body>
+</html>
